@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+crm_benef,crm_benef,model_crm_benef,group_crm_benef,1,1,1,1
+crm_benef2,crm_benef2,model_crm_benef2,group_crm_benef,1,1,1,1
+crm_banco,crm_banco,model_crm_banco,group_crm_benef,1,1,1,1
+crm_services,crm_services,model_crm_services,group_crm_benef,1,1,1,1
+crm_regimen,crm_regimen,model_crm_regimen,group_crm_benef,1,1,1,1
+crm_cfdi,crm_cfdi,model_crm_cfdi,group_crm_benef,1,1,1,1
+crm_payment,crm_payment,model_crm_payment,group_crm_benef,1,1,1,1
+crm_way,crm_way,model_crm_way,group_crm_benef,1,1,1,1

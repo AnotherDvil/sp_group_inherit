@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Acción del reporte-->
+        <report
+            id="report_crm_custom_xlsx_pagos_internos"
+            string="Reporte pagos internos"
+            model="crm.lead"
+            report_type="xlsx"
+            name="sp_group_inherit.report_crm_custom_xlsx_pagos_internos"
+            file="sp_group_inherit.report_crm_custom_xlsx_pagos_internos"
+            print_report_name="'Pagos internos - ' + object.name"
+        />
+    </data>
+</odoo>

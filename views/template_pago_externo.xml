@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="template_pago_externo">
+        <t t-call="web.html_container">
+            <t t-call-assets="web.assets_common"/>
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <strong>Empresa:</strong> 
+                                    <span t-esc="o.beneficiary.name"/>
+                                </div>
+                                <div class="col-12">
+                                    <strong>Cliente:</strong> 
+                                    <span t-esc="o.partner_id.name"/> 
+                                    <strong>RFC:</strong> 
+                                    <span t-esc="o.partner_id.vat"/>
+                                </div>
+                                <div class="col-12">
+                                    <strong>Domicilio:</strong> 
+                                    <span t-esc="o.partner_id.street"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>
+                                        <strong>Total depositado:</strong> 
+                                        <span t-esc="o.total"/>
+                                    </p>
+                                </div>
+                                <div class="col-4">
+                                    <p>
+                                        <strong>Porcentaje comisión:</strong> 
+                                        <span t-esc="o.comision_percent"/>%
+                                    </p>
+                                </div>
+                                <div class="col-4">
+                                    <p>
+                                        <strong>Comisión total:</strong> 
+                                        <span t-esc="o.comision_total"/>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <table class="table table-sm table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Monto</th>
+                                            <th>Beneficiario</th>
+                                            <th>Banco</th>
+                                            <th>Número de cuenta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.beneficiario2_ids" t-as="comision">
+                                            <tr>
+                                                <td><span t-esc="comision.mount"/></td>
+                                                <td><span t-esc="comision.name"/></td>
+                                                <td><span t-esc="comision.bank.name"/></td>
+                                                <td><span t-esc="comision.clabe"/></td>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td colspan="4">
+                                                <span t-esc="o.beneficiario_ids.mount"/> 
+                                                <strong>Total a depositar</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <span t-esc="o.remaining2"/> 
+                                                <strong>Restante</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <span t-esc="o.general_balance"/> 
+                                                <strong>Cuadre general</strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
