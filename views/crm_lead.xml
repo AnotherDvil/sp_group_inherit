@@ -19,9 +19,9 @@
             <field name="partner_email_update" invisible="1"/>
             <field name="partner_phone_update" invisible="1"/>
             <field name="total" />
-            <field name="subtotal" />
+            <field name="subtotal" force_save="1"/>
             <field name="comision_percent" />
-            <field name="comision_total" />
+            <field name="comision_total" force_save="1"/>
           </group>
       </xpath>
 
@@ -55,7 +55,10 @@
 
       <!-- Agregamos las tablas -->
       <xpath expr="//group" position="after">
-        <group name="beneficiario_ids_group" string="Comisiones">
+        <div>
+          <h2>
+            <label for="beneficiario_ids" string="Comisiones"></label>
+          </h2>
           <field name="beneficiario_ids">
             <tree>
               <field name="percent" />
@@ -66,28 +69,33 @@
               <field name="mount" sum="Total"/>
             </tree>
           </field>
-        </group>
+        </div>
 
         <group string="Actualización de los datos">
-          <field name="remaining" />
-          <field name="disponible" />
+          <field name="remaining" force_save="1"/>
+          <field name="disponible" force_save="1"/>
         </group>
 
-        <field name="beneficiario2_ids">
-          <tree>
-            <field name="percent" />
-            <field name="name" />
-            <field name="bank" />
-            <field name="bank_code" />
-            <field name="clabe" />
-            <field name="mount" sum="Total"/>
-          </tree>
-        </field>
+        <div>
+          <h2>
+            <label for="beneficiario2_ids" string="Dispersiones"></label>
+          </h2>
+          <field name="beneficiario2_ids">
+            <tree>
+              <field name="percent" />
+              <field name="name" />
+              <field name="bank" />
+              <field name="bank_code" />
+              <field name="clabe" />
+              <field name="mount" sum="Total"/>
+            </tree>
+          </field>
+        </div>
 
         <group string="Datos finales">
-          <field name="remaining2" />
-          <field name="general_balance" />
-          <field name="total_bill" />
+          <field name="remaining2" force_save="1"/>
+          <field name="general_balance" force_save="1"/>
+          <field name="total_bill" force_save="1"/>
         </group>
 
       </xpath>

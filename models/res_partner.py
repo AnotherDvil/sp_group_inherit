@@ -40,3 +40,12 @@ class res_partner_inherit(models.Model):
         ('Yucatán', 'Yucatán'),
         ('Zacatecas', 'Zacatecas')
     ], string='Estado')
+
+    social = fields.Char(string='Razón social')
+    alias1 = fields.Char(string='Alias')
+    representante = fields.Char(string='Representante legal')
+    dom_fiscal = fields.Char(string='Domicilio Fiscal')
+    no_escritura_publica = fields.Char(string='Número de escritura pública')
+    notario = fields.Char(string='Nombre del notario')
+    ciudad_n = fields.Char(string='Ciudad de la notaría')
+    folio = fields.Char(string='Folio mercantil')

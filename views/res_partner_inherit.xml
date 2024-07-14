@@ -10,6 +10,22 @@
                 <field name="localidad" />
                 <field name="estado" />
             </xpath>
+
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Información adicional">
+                    <group>
+                        <field name="social"/>
+                        <field name="alias1"/>
+                        <field name="representante"/>
+                        <field name="dom_fiscal"/>
+                        <field name="no_escritura_publica"/>
+                        <field name="notario"/>
+                        <field name="ciudad_n"/>
+                        <field name="folio"/>
+                    </group>
+                </page>
+            </xpath>
+
         </field>
     </record>
 
