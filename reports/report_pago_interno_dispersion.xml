@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_pago_interno_dispersion" model="ir.actions.report">
+        <field name="name">Reporte de pago interno sobre dispersión</field>
+        <field name="model">crm.lead</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sp_group_inherit.template_pago_interno_dispersion</field>
+        <field name="report_file">sp_group_inherit.template_pago_interno_dispersion</field>
+    </record>
+</odoo>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="template_pago_interno_dispersion">
+        <t t-call="web.html_container">
+            <t t-call-assets="web.assets_common"/>
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="container-fluid">
+                            <!-- 
+                            Beneficiario, Cliente, RFC, domicilio, 
+                            total factura, porcentaje comisión, comision total 
+                            -->
+                            <div class="row">
+                                <div class="col-3">
+                                    <strong>Beneficiario:</strong> 
+                                    <span t-esc="o.mrk_beneficiary.name"/>
+                                </div>
+                                <div class="col-3">
+                                    <strong>Cliente:</strong> 
+                                    <span t-esc="o.partner_id.name"/> 
+                                    <strong>RFC:</strong> 
+                                    <span t-esc="o.partner_id.vat"/>
+                                </div>
+                                <div class="col-3">
+                                    <strong>Domicilio:</strong> 
+                                    <span t-esc="o.partner_id.street"/>
+                                </div>
+                            </div>
+                            <br/>
+
+                            <!-- Detalle de comisiones -->
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>
+                                        <strong>Total factura:</strong> 
+                                        $<span t-esc="o.mrk_total_bill"/>
+                                    </p>
+                                </div>
+                                <div class="col-4">
+                                    <p>
+                                        <strong>Porcentaje comisión:</strong> 
+                                        <span t-esc="o.mrk_comision_percent"/>%
+                                    </p>
+                                </div>
+                                <div class="col-4">
+                                    <p>
+                                        <strong>Comisión total:</strong> 
+                                        $<span t-esc="o.mrk_comision_total"/>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Monto</th>
+                                        <th>Porcentaje</th>
+                                        <th>Beneficiario</th>
+                                        <th>Banco</th>
+                                        <th>Número de cuenta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="total_comision" t-value="sum(comision.mount for comision in o.mrk_beneficiario_ids)"/>
+                                    <t t-foreach="o.mrk_beneficiario_ids" t-as="comision">
+                                        <tr>
+                                            <td>$<span t-esc="comision.mount"/></td>
+                                            <td><span t-esc="comision.percent"/>%</td>
+                                            <td><span t-esc="comision.name"/></td>
+                                            <td><span t-esc="comision.bank.name"/></td>
+                                            <td><span t-esc="comision.clabe"/></td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td colspan="5">
+                                            $<span t-esc="'{0:,.2f}'.format(total_comision)" />
+                                            <!--<span t-esc="total_comision"/> -->
+                                            <strong>Total comisión</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+
+                            <!-- Detalle de depósito -->
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Monto</th>
+                                        <th>Beneficiario</th>
+                                        <th>Banco</th>
+                                        <th>Número de cuenta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="total_deposito" t-value="sum(deposito.mount for deposito in o.mrk_beneficiario2_ids)"/>
+                                    <t t-foreach="o.mrk_beneficiario2_ids" t-as="deposito">
+                                        <tr>
+                                            <td>$<span t-esc="deposito.mount"/></td>
+                                            <td><span t-esc="deposito.name"/></td>
+                                            <td><span t-esc="deposito.bank.name"/></td>
+                                            <td><span t-esc="deposito.clabe"/></td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td colspan="4">
+                                            $<span t-esc="total_deposito"/> 
+                                            <strong>Total a depositar</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
