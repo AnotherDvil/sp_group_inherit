@@ -4,7 +4,7 @@
         <field name="name">Reporte de pago interno sobre dispersión</field>
         <field name="model">crm.lead</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">sp_group_inherit.template_pago_interno_dispersion</field>
-        <field name="report_file">sp_group_inherit.template_pago_interno_dispersion</field>
+        <field name="report_name">sp_group_inherit.template_pago_interno_sobre_dispersion</field>
+        <field name="report_file">sp_group_inherit.template_pago_interno_sobre_dispersion</field>
     </record>
 </odoo>
