@@ -25,18 +25,18 @@ class CrmXlsx(models.AbstractModel):
         # Escribimos la data
         row_num = 1
         for lead in leads:
-            for line in lead.beneficiario_ids:
+            for line in lead.mrk_beneficiario_ids:
                 sheet.write(row_num, 0, row_num)
                 sheet.write(row_num, 1, line.clabe if line else '')
                 sheet.write(row_num, 2, line.bank_code if line else '')
-                sheet.write(row_num, 3, line.name if line.beneficiario else '')
+                sheet.write(row_num, 3, line.name if line else '')
                 sheet.write(row_num, 4, line.mount if line else 0)
                 row_num += 1
-            for line in lead.beneficiario2_ids:
+            for line in lead.mrk_beneficiario2_ids:
                 sheet.write(row_num, 0, row_num)
                 sheet.write(row_num, 1, line.clabe if line else '')
                 sheet.write(row_num, 2, line.bank_code if line else '')
-                sheet.write(row_num, 3, line.name if line.beneficiario else '')
+                sheet.write(row_num, 3, line.name if line else '')
                 sheet.write(row_num, 4, line.mount if line else 0)
                 row_num += 1
 

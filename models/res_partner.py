@@ -5,8 +5,8 @@ from odoo import models, fields, api
 class res_partner_inherit(models.Model):
     _inherit = 'res.partner'
 
-    localidad = fields.Char(string='Localidad')
-    estado = fields.Selection([
+    mrk_localidad = fields.Char(string='Localidad')
+    mrk_estado = fields.Selection([
         ('Aguascalientes', 'Aguascalientes'),
         ('Baja California', 'Baja California'),
         ('Baja California Sur', 'Baja California Sur'),
@@ -41,11 +41,11 @@ class res_partner_inherit(models.Model):
         ('Zacatecas', 'Zacatecas')
     ], string='Estado')
 
-    social = fields.Char(string='Razón social')
-    alias1 = fields.Char(string='Alias')
-    representante = fields.Char(string='Representante legal')
-    dom_fiscal = fields.Char(string='Domicilio Fiscal')
-    no_escritura_publica = fields.Char(string='Número de escritura pública')
-    notario = fields.Char(string='Nombre del notario')
-    ciudad_n = fields.Char(string='Ciudad de la notaría')
-    folio = fields.Char(string='Folio mercantil')
+    mrk_social = fields.Char(string='Razón social')
+    mrk_alias1 = fields.Char(string='Alias')
+    mrk_representante = fields.Char(string='Representante legal')
+    mrk_dom_fiscal = fields.Char(string='Domicilio Fiscal')
+    mrk_no_escritura_publica = fields.Char(string='Número de escritura pública')
+    mrk_notario = fields.Char(string='Nombre del notario')
+    mrk_ciudad_n = fields.Char(string='Ciudad de la notaría')
+    mrk_folio = fields.Char(string='Folio mercantil')

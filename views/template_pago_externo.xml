@@ -10,7 +10,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <strong>Empresa:</strong> 
-                                    <span t-esc="o.beneficiary.name"/>
+                                    <span t-esc="o.mrk_beneficiary.name"/>
                                 </div>
                                 <div class="col-12">
                                     <strong>Cliente:</strong> 
@@ -28,19 +28,19 @@
                                 <div class="col-4">
                                     <p>
                                         <strong>Total depositado:</strong> 
-                                        $<span t-esc="o.total"/>
+                                        $<span t-esc="o.mrk_total"/>
                                     </p>
                                 </div>
                                 <div class="col-4">
                                     <p>
                                         <strong>Porcentaje comisión:</strong> 
-                                        <span t-esc="o.comision_percent"/>%
+                                        <span t-esc="o.mrk_comision_percent"/>%
                                     </p>
                                 </div>
                                 <div class="col-4">
                                     <p>
                                         <strong>Comisión total:</strong> 
-                                        $<span t-esc="o.comision_total"/>
+                                        $<span t-esc="o.mrk_comision_total"/>
                                     </p>
                                 </div>
                             </div>
@@ -57,9 +57,9 @@
                                     </thead>
                                     <tbody>
 
-                                        <t t-set="total_deposito" t-value="sum(deposito.mount for deposito in o.beneficiario2_ids)"/>
+                                        <t t-set="total_deposito" t-value="sum(deposito.mount for deposito in o.mrk_beneficiario2_ids)"/>
 
-                                        <t t-foreach="o.beneficiario2_ids" t-as="comision">
+                                        <t t-foreach="o.mrk_beneficiario2_ids" t-as="comision">
                                             <tr>
                                                 <td>$<span t-esc="comision.mount"/></td>
                                                 <td><span t-esc="comision.name"/></td>
@@ -75,13 +75,13 @@
                                         </tr>
                                         <tr>
                                             <td colspan="4">
-                                                $<span t-esc="o.remaining2"/> 
+                                                $<span t-esc="o.mrk_remaining2"/> 
                                                 <strong>Restante</strong>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="4">
-                                                $<span t-esc="o.general_balance"/> 
+                                                $<span t-esc="o.mrk_general_balance"/> 
                                                 <strong>Cuadre general</strong>
                                             </td>
                                         </tr>

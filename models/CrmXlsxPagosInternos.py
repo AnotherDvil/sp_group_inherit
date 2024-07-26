@@ -60,7 +60,7 @@ class CrmXlsx(models.AbstractModel):
         sheet.merge_range('S2:V2', 'RECEPTOR', bold_blue)
 
         for lead in leads:
-            empresasp = lead.beneficiary
+            empresasp = lead.mrk_beneficiary
             receptor = lead.partner_id
 
             # Formato del emisor
@@ -83,19 +83,19 @@ class CrmXlsx(models.AbstractModel):
             sheet.merge_range('A11:D11', 'Municipio', letter_blue)
             sheet.write('A12', empresasp.city or '')
             sheet.merge_range('J11:M11', 'Estado', letter_blue)
-            sheet.write('J12', empresasp.estado or '')
+            sheet.write('J12', empresasp.mrk_estado or '')
             sheet.merge_range('A13:D13', 'País', letter_blue)
             sheet.write('A14', empresasp.country_id.name or '')
             sheet.merge_range('J13:M13', 'Localidad', letter_blue)
-            sheet.write('J14', empresasp.localidad or '')
+            sheet.write('J14', empresasp.mrk_localidad or '')
             sheet.merge_range('A15:D15', 'e.mail', letter_blue)
             sheet.write('A16', empresasp.email or '')
             sheet.merge_range('J15:M15', 'Régimen Fiscal', letter_blue)
-            sheet.write('J16', lead.regimen or '')
+            sheet.write('J16', lead.mrk_regimen or '')
             sheet.merge_range('A17:E17', 'Método de Pago', letter_blue)
-            sheet.write('A18', lead.payment_method or '')
+            sheet.write('A18', lead.mrk_payment_method or '')
             sheet.merge_range('J17:N17', 'Forma de Pago', letter_blue)
-            sheet.write('J18', lead.way_pay or '')
+            sheet.write('J18', lead.mrk_waypay or '')
 
             # Formato del receptor
             sheet.merge_range('S3:V3', 'Razón social', letter_blue)
@@ -117,21 +117,21 @@ class CrmXlsx(models.AbstractModel):
             sheet.merge_range('S11:V11', 'Municipio', letter_blue)
             sheet.write('S12', receptor.city or '')
             sheet.merge_range('AD11:AF11', 'Estado', letter_blue)
-            sheet.write('AD12', receptor.estado or '')
+            sheet.write('AD12', receptor.mrk_estado or '')
             sheet.merge_range('S13:V13', 'País', letter_blue)
             sheet.write('S14', receptor.country_id.name or '')
             sheet.merge_range('AD13:AG13', 'Localidad', letter_blue)
-            sheet.write('AD14', receptor.localidad or '')
+            sheet.write('AD14', receptor.mrk_localidad or '')
             sheet.merge_range('S15:V15', 'e.mail', letter_blue)
             sheet.write('S16', receptor.email or '')
             sheet.merge_range('AD15:AG15', 'Uso del CFDI', letter_blue)
-            sheet.write('AD16', lead.uso_cfdi or '')
+            sheet.write('AD16', lead.mrk_cfdi or '')
             sheet.merge_range('S17:V17', 'Observaciones', letter_blue)
-            sheet.write('S18', lead.observations or '')
+            sheet.write('S18', lead.description or '')
             sheet.merge_range('Y17:AB17', 'Referencia pago', letter_blue)
-            sheet.write('Y18', lead.reference or '')
+            sheet.write('Y18', lead.mrk_reference or '')
             sheet.merge_range('AD17:AF17', 'Total', letter_blue)
-            sheet.write('AD18:AE18', lead.total_company_3 or '', cell_format)
+            sheet.write('AD18:AE18', lead.mrk_total or '', cell_format)
 
             # Tabla de detalles de la factura
             sheet.merge_range('A20:C20', 'Cantidad', table_format)
@@ -143,7 +143,7 @@ class CrmXlsx(models.AbstractModel):
             sheet.merge_range('AE20:AG20', 'Tasa', table_format)
             sheet.merge_range('AH20:AK20', 'Total Línea', table_format)
 
-            for line in lead.services:
+            for line in lead.mrk_services:
                 sheet.write('A21:C21', '1', cell_format)
                 sheet.write('D21:G20', line.name if line else '', cell_format)
                 sheet.write('H21:J21', line.product_services if line else '', cell_format)
@@ -152,9 +152,9 @@ class CrmXlsx(models.AbstractModel):
                 sheet.write('AA21:AD21', 'IVA', cell_format)
                 sheet.write('AE21:AG21', '16%', cell_format)
 
-            sheet.write('V21:Z21', lead.subtotal, cell_format)
-            sheet.write('AH21:AK21', lead.total, cell_format)
+            sheet.write('V21:Z21', lead.mrk_subtotal, cell_format)
+            sheet.write('AH21:AK21', lead.mrk_total, cell_format)
 
             # Total
             sheet.merge_range('AF24:AG24', 'Total', bold_blue)
-            sheet.write('AI24:AK24', lead.total or '', cell_format)
+            sheet.write('AI24:AK24', lead.mrk_total or '', cell_format)

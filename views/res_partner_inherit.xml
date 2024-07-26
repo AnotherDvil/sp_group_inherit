@@ -7,21 +7,21 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='vat']" position="before">
-                <field name="localidad" />
-                <field name="estado" />
+                <field name="mrk_localidad" />
+                <field name="mrk_estado" />
             </xpath>
 
             <xpath expr="//page[@name='internal_notes']" position="after">
                 <page string="Información adicional">
                     <group>
-                        <field name="social"/>
-                        <field name="alias1"/>
-                        <field name="representante"/>
-                        <field name="dom_fiscal"/>
-                        <field name="no_escritura_publica"/>
-                        <field name="notario"/>
-                        <field name="ciudad_n"/>
-                        <field name="folio"/>
+                        <field name="mrk_social"/>
+                        <field name="mrk_alias1"/>
+                        <field name="mrk_representante"/>
+                        <field name="mrk_dom_fiscal"/>
+                        <field name="mrk_no_escritura_publica"/>
+                        <field name="mrk_notario"/>
+                        <field name="mrk_ciudad_n"/>
+                        <field name="mrk_folio"/>
                     </group>
                 </page>
             </xpath>

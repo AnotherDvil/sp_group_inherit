@@ -8,7 +8,7 @@
       <!-- Desaparecemos campos -->
       <xpath expr="//group[@name='opportunity_partner']" position="replace">
           <group name="opportunity_partner">
-            <field name="beneficiary" />
+            <field name="mrk_beneficiary" />
             <field name="partner_id" string="Cliente" widget="res_partner_many2one" context="{'res_partner_search_mode': type == 'opportunity' and 'customer' or False,                                         'default_name': contact_name or partner_name,                                         'default_street': street,                                         'default_is_company': type == 'opportunity' and contact_name == False,                                         'default_company_name': type == 'opportunity' and partner_name,                                         'default_street2': street2,                                         'default_city': city,                                         'default_title': title,                                         'default_state_id': state_id,                                         'default_zip': zip,                                         'default_country_id': country_id,                                         'default_function': function,                                         'default_phone': phone,                                         'default_mobile': mobile,                                         'default_email': email_from,                                         'default_user_id': user_id,                                         'default_team_id': team_id,                                         'default_website': website,                                         'show_vat': True,                                     }"/>
             <field name="is_blacklisted" invisible="1"/>
             <field name="partner_is_blacklisted" invisible="1"/>
@@ -18,10 +18,10 @@
             <field name="phone_state" invisible="1"/>
             <field name="partner_email_update" invisible="1"/>
             <field name="partner_phone_update" invisible="1"/>
-            <field name="total" />
-            <field name="subtotal" force_save="1"/>
-            <field name="comision_percent" />
-            <field name="comision_total" force_save="1"/>
+            <field name="mrk_total" />
+            <field name="mrk_subtotal" force_save="1"/>
+            <field name="mrk_comision_percent" />
+            <field name="mrk_comision_total" force_save="1"/>
           </group>
       </xpath>
 
@@ -45,21 +45,21 @@
 
       <xpath expr="//field[@name='date_deadline']" position="before">
         <field name="user_id" />
-        <field name="reference" />
-        <field name="regimen" />
-        <field name="cfdi" />
-        <field name="services" />
-        <field name="payment_method" />
-        <field name="waypay" />
+        <field name="mrk_reference" />
+        <field name="mrk_regimen" />
+        <field name="mrk_cfdi" />
+        <field name="mrk_services" />
+        <field name="mrk_payment_method" />
+        <field name="mrk_waypay" />
       </xpath>
 
       <!-- Agregamos las tablas -->
       <xpath expr="//group" position="after">
         <div>
           <h2>
-            <label for="beneficiario_ids" string="Comisiones"></label>
+            <label for="mrk_beneficiario_ids" string="Comisiones"></label>
           </h2>
-          <field name="beneficiario_ids">
+          <field name="mrk_beneficiario_ids">
             <tree>
               <field name="percent" />
               <field name="name" />
@@ -72,15 +72,15 @@
         </div>
 
         <group string="Actualización de los datos">
-          <field name="remaining" force_save="1"/>
-          <field name="disponible" force_save="1"/>
+          <field name="mrk_remaining" force_save="1"/>
+          <field name="mrk_disponible" force_save="1"/>
         </group>
 
         <div>
           <h2>
-            <label for="beneficiario2_ids" string="Dispersiones"></label>
+            <label for="mrk_beneficiario2_ids" string="Dispersiones"></label>
           </h2>
-          <field name="beneficiario2_ids">
+          <field name="mrk_beneficiario2_ids">
             <tree>
               <field name="percent" />
               <field name="name" />
@@ -93,9 +93,9 @@
         </div>
 
         <group string="Datos finales">
-          <field name="remaining2" force_save="1"/>
-          <field name="general_balance" force_save="1"/>
-          <field name="total_bill" force_save="1"/>
+          <field name="mrk_remaining2" force_save="1"/>
+          <field name="mrk_general_balance" force_save="1"/>
+          <field name="mrk_total_bill" force_save="1"/>
         </group>
 
       </xpath>
