@@ -5,7 +5,7 @@
     'description': "Modulo desarrollado para la herencia dentro de CRM y Empleados",
     'author': "Ángel López",
     'category': 'CRM',
-    'version': '1.8',
+    'version': '2.0',
     # any module necessary for this one to work correctly
     'depends': [ 'base', 'report_xlsx', 'crm', 'hr' ],
     # always loaded
